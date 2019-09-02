@@ -12,8 +12,8 @@ The second thing you will need to set up is the config file in the public folder
 If you are going to be running this site on your own computer, your `config.json` file should look something like this:
 ```json
 {
-	"SERVER_URL": "http://localhost",
-	"SERVER_PORT": "3000"
+  "SERVER_URL": "http://localhost",
+  "SERVER_PORT": "3000"
 }
 ```
 However, if you are running this project inside a virtual server, you will most likely need to change the `SERVER_URL` section to match whatever your virtual server is set to. The `SERVER_PORT` is set to `3000`. But if you already have something running on port `3000`, then you will need to change it before continuing.
