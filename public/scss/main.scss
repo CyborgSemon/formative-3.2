@@ -32,11 +32,12 @@ body {
 			color: $textColor;
 		}
 		button {
-			@include raisedButton;
+			@include discreetButton;
 		}
 	}
 	#projects {
 		padding: 20px;
+		display: flex;
 	}
 	@media screen and (min-width: 786px) {
 		flex-direction: row;
@@ -44,12 +45,13 @@ body {
 }
 
 .card {
+	margin: 5px;
 	max-width: 350px;
 	box-shadow: $buttonShadowIdle;
 	border-radius: 8px;
 	transition: 1s;
-	overflow: visible;
 	position: relative;
+	cursor: pointer;
 	.cardImage {
 		transition: 1s;
 		img {
@@ -62,7 +64,10 @@ body {
 	.cardText {
 		display: flex;
 		flex-direction: column;
-		padding: 8px 12px;
+		padding: 8px 12px 12px 12px;
+		overflow: hidden;
+		max-height: 95px;
+		transition: 1s;
 		.cardTitle {
 			font-size: 1.5em;
 			margin-bottom: 6px;
@@ -73,14 +78,27 @@ body {
 			color: rgba($textColor, 0.6);
 		}
 	}
+	.cardButton {
+		width: 100%;
+		margin-top: 8px;
+		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include raisedButton;
+	}
 	&.active {
 		margin-top: 30px;
 		.cardImage {
 			margin: 0 15px;
 			img {
 				margin-top: -15px;
-				box-shadow: $buttonShadowHover;
+				box-shadow: $cardImageShadow;
+				border-radius: 8px;
 			}
+		}
+		.cardText {
+			max-height: 358px;
 		}
 	}
 }
