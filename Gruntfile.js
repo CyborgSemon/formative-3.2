@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		jshint: {
 			files: ['*.js', '!Gruntfile.js', 'public/js/*.js'],
 			options: {
-				'esversion': 6,
+				'esversion': 6
 			}
 		},
 		watch: {
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			},
 			frontJs: {
 				files: ['public/js/main.js'],
-				tasks: ['jshint', 'uglify']
+				tasks: ['uglify']
 			},
 			backJS: {
 				files: ['server.js'],
