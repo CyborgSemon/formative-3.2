@@ -1,0 +1,46 @@
+$buttonShadowIdle: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+$buttonShadowHover: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+
+@mixin buttonBasics($bgCol) {
+	border: none;
+	padding: 0 8px;
+	font-size: 1rem;
+	min-width: 64px;
+	height: 36px;
+	font-weight: 500;
+	border-radius: 4px;
+	background-color: $bgCol;
+	cursor: pointer;
+	outline: none;
+	@if ($bgCol == $backgroundColor) {
+		transition: background-color 0.2s linear;
+		&:hover {
+			background-color: rgba($mainColor, 0.12);
+		}
+		&:active {
+			background-color: rgba($mainColor, 0.24);
+		}
+	} @else {
+		transition: background-color 0.2s ease, box-shadow 0.2s linear;
+		&:hover {
+			background-color: lighten($bgCol, 3%);
+		}
+		&:active {
+			background-color: lighten($bgCol, 8%);
+		}
+	}
+}
+
+@mixin raisedButton {
+	color: $mainColorText;
+	box-shadow: $buttonShadowIdle;
+	&:hover {
+		box-shadow: $buttonShadowHover;
+	}
+	@include buttonBasics($mainColor);
+}
+
+@mixin discreetButton {
+	color: $mainColor;
+	@include buttonBasics($backgroundColor);
+}
