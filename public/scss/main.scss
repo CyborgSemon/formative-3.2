@@ -1,6 +1,104 @@
+$textColor: #000000;
+$backgroundColor: #FFFFFF;
+$mainColor: #0097A7;
+$mainColorText: if(lightness($mainColor) > 50, #000000, #FFFFFF);
+$secondaryColor: #6A1B9A;
+$secondaryColorText: if(lightness($secondaryColor) > 50, #000000, #FFFFFF);
+
+@import 'button';
+@import 'card';
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	background-color: $backgroundColor;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	.infoBar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px;
+		h3 {
+			font-size: 1.4rem;
+			color: $textColor;
+		}
+		button {
+			@include discreetButton;
+		}
+	}
+	#projects {
+		padding: 20px;
+		display: flex;
+	}
+	@media screen and (min-width: 786px) {
+		flex-direction: row;
+	}
+}
+
+.card {
+	margin: 5px;
+	max-width: 350px;
+	box-shadow: $buttonShadowIdle;
+	border-radius: 8px;
+	transition: 1s;
+	position: relative;
+	cursor: pointer;
+	.cardImage {
+		transition: 1s;
+		img {
+			width: 100%;
+			border-top-right-radius: 8px;
+			border-top-left-radius: 8px;
+			transition: 1s;
+		}
+	}
+	.cardText {
+		display: flex;
+		flex-direction: column;
+		padding: 8px 12px 12px 12px;
+		overflow: hidden;
+		max-height: 95px;
+		transition: 1s;
+		.cardTitle {
+			font-size: 1.5em;
+			margin-bottom: 6px;
+		}
+		.cardAuthor {
+			font-size: 0.9em;
+			margin-bottom: 6px;
+			color: rgba($textColor, 0.6);
+		}
+	}
+	.cardButton {
+		width: 100%;
+		margin-top: 8px;
+		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include raisedButton;
+	}
+	&.active {
+		margin-top: 30px;
+		.cardImage {
+			margin: 0 15px;
+			img {
+				margin-top: -15px;
+				box-shadow: $cardImageShadow;
+				border-radius: 8px;
+			}
+		}
+		.cardText {
+			max-height: 358px;
+		}
+	}
 }
