@@ -7,9 +7,26 @@
 	</head>
 	<body>
 		<h1>CREATE</h1>
-		<p>Name</p>
-		<input id="name" type="text" name="" value="">
-		<button id="username" type="submit" name="button">Create</button>
+
+		<form id="register" autocomplete="false">
+			<p>username</p>
+			<input type="text" name="username" id="username">
+			<p>password</p>
+			<input type="password" name="password" id="password" autocomplete="new-password">
+			<p>fullName</p>
+			<input type="text" name="fullName" id="fullName">
+			<p>email</p>
+			<input type="text" name="email" id="email">
+
+			<button type="submit" name="button">Send Username</button>
+		</form>
+
+		<form id="login">
+			<p>username</p>
+			<input type="text" name="lUsername" id="lUsername">
+			<p>password</p>
+			<input type="text" name="lUsername" id="lpassword">
+		</form>
 
 		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="js/main.js"></script>
