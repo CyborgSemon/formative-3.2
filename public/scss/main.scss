@@ -27,6 +27,9 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		padding: 8px;
+		.fa-plus {
+			font-size: 16px;
+		}
 		h3 {
 			font-size: 1.4rem;
 			color: $textColor;
