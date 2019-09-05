@@ -46,13 +46,30 @@ body {
 	}
 }
 
+.spacing {
+	margin-top: 10px;
+}
+
+.inputStyle {
+	width: 500px;
+	padding: 10px;
+}
+.deleteButtons {
+	display: flex;
+	justify-content: flex-end;
+	.formBtn {
+		margin-top: 10px;
+		@include raisedButton;
+	}
+}
+
 .container {
 	display: flex;
 	flex-direction: column;
 	.infoBar {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		flex-direction: row;
 		padding: 8px;
 		.fa-plus {
 			font-size: 16px;
@@ -61,9 +78,17 @@ body {
 			font-size: 1.4rem;
 			color: $textColor;
 			width: 60%;
+			@media screen and (min-width: 786px) {
+				width: 100%;
+			}
 		}
 		button {
 			@include discreetButton;
+		}
+		@media screen and (min-width: 786px) {
+			height: 100vh;
+			flex-direction: column;
+			flex-flow: inherit;
 		}
 	}
 	#projects {
