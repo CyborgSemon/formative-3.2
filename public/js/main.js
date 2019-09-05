@@ -268,6 +268,23 @@ $('#dialogBackground5').click(()=> {
     $('#deleteInputId').val(null);
 });
 
+$('#loginBtnCancel').click(()=> {
+    $('#dialog1').hide();
+});
+
+$('#createBtnCancel').click(()=> {
+    $('#dialog2').hide();
+});
+
+$('#deleteBtnCancel').click(()=> {
+    $('#dialog3').hide();
+});
+
+$('#editBtnCancel').click(()=> {
+    $('#dialog4').hide();
+});
+
+
 
 let grid = document.getElementById('projects');
 let cards = [];

@@ -141,32 +141,13 @@ body {
 
 .inputStyle {
   width: 500px;
-  padding: 10px; }
-
-.deleteButtons {
-  display: flex;
-  justify-content: flex-end; }
-  .deleteButtons .formBtn {
-    margin-top: 10px;
-    color: #FFFFFF;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    border: none;
-    padding: 0 8px;
-    font-size: 1rem;
-    min-width: 64px;
-    height: 36px;
-    font-weight: 500;
-    border-radius: 4px;
-    background-color: #0097A7;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.2s linear, box-shadow 0.2s linear; }
-    .deleteButtons .formBtn:hover {
-      box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
-    .deleteButtons .formBtn:hover {
-      background-color: #00a5b6; }
-    .deleteButtons .formBtn:active {
-      background-color: #00bcd0; }
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  outline: none; }
+  .inputStyle:focus {
+    border: 1px solid black; }
 
 .container {
   display: flex;
@@ -225,11 +206,15 @@ body {
 
 .deleteBox h3 {
   margin-bottom: 8px; }
-.deleteBox .deleteButtons {
+
+.deleteButtons {
   margin-top: 12px;
   display: flex;
   justify-content: flex-end; }
-  .deleteBox .deleteButtons #deleteCancel {
+  .deleteButtons .cancelBtn {
+    display: flex;
+    align-items: center;
+    margin: 0 4px;
     color: #0097A7;
     border: none;
     padding: 0 8px;
@@ -241,13 +226,13 @@ body {
     background-color: #FFFFFF;
     cursor: pointer;
     outline: none;
-    transition: background-color 0.2s linear;
-    margin: 0 4px; }
-    .deleteBox .deleteButtons #deleteCancel:hover {
+    transition: background-color 0.2s linear; }
+    .deleteButtons .cancelBtn:hover {
       background-color: rgba(0, 151, 167, 0.12); }
-    .deleteBox .deleteButtons #deleteCancel:active {
+    .deleteButtons .cancelBtn:active {
       background-color: rgba(0, 151, 167, 0.24); }
-  .deleteBox .deleteButtons #deleteDelete {
+  .deleteButtons .formBtn {
+    margin-left: 4px;
     color: #FFFFFF;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     border: none;
@@ -260,13 +245,12 @@ body {
     background-color: #0097A7;
     cursor: pointer;
     outline: none;
-    transition: background-color 0.2s linear, box-shadow 0.2s linear;
-    margin-left: 4px; }
-    .deleteBox .deleteButtons #deleteDelete:hover {
+    transition: background-color 0.2s linear, box-shadow 0.2s linear; }
+    .deleteButtons .formBtn:hover {
       box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12); }
-    .deleteBox .deleteButtons #deleteDelete:hover {
+    .deleteButtons .formBtn:hover {
       background-color: #00a5b6; }
-    .deleteBox .deleteButtons #deleteDelete:active {
+    .deleteButtons .formBtn:active {
       background-color: #00bcd0; }
 
 /*# sourceMappingURL=main.css.map */

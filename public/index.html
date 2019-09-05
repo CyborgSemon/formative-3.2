@@ -9,12 +9,14 @@
 	<body>
 		<div class="dialog" id="dialog1">
 			<div class="dialogBox">
+				<h3>Login</h3>
 				<form id="login">
 					<p class="spacing">Username</p>
 					<input class="spacing inputStyle" type="text" name="lUsername" id="lUsername">
 					<p class="spacing">Password</p>
 					<input class="spacing inputStyle" type="password" name="lPassword" id="lPassword">
 					<div class="deleteButtons">
+						<a class="cancelBtn" id="loginBtnCancel">Cancel</a>
 						<button class="formBtn" type="submit" name="button">Login</button>
 					</div>
 				</form>
@@ -23,6 +25,7 @@
 		</div>
 		<div class="dialog" id="dialog2">
 			<div class="dialogBox">
+				<h3>Register new user</h3>
 				<form id="register" autocomplete="false">
 					<p class="spacing">Username</p>
 					<input class="spacing inputStyle" type="text" name="username" id="username">
@@ -35,6 +38,7 @@
 					<p class="spacing">Email</p>
 					<input class="spacing inputStyle" type="email" name="email" id="email">
 					<div class="deleteButtons">
+						<a class="cancelBtn" id="createBtnCancel">Cancel</a>
 						<button class="formBtn" type="submit" name="button">Create Account</button>
 					</div>
 				</form>
@@ -43,6 +47,7 @@
 		</div>
 		<div class="dialog" id="dialog3">
 			<div class="dialogBox">
+				<h3>Add new item</h3>
 				<form id="addItem">
 					<p class="spacing">Title</p>
 					<input class="spacing inputStyle" type="text" name="name" id="itemName">
@@ -53,6 +58,7 @@
 					<p class="spacing">Project URL</p>
 					<input class="spacing inputStyle" type="text" name="url" id="itemUrl">
 					<div class="deleteButtons">
+						<a class="cancelBtn" id="deleteBtnCancel">Cancel</a>
 						<button class="formBtn" type="submit" name="button">Add Item</button>
 					</div>
 				</form>
@@ -73,6 +79,7 @@
 					<input class="spacing inputStyle" type="text" name="url" id="editItemUrl">
 					<input id="editInputId" type="hidden" value="">
 					<div class="deleteButtons">
+						<a class="cancelBtn" id="editBtnCancel">Cancel</a>
 						<button class="formBtn" type="submit" name="button">Edit Item</button>
 					</div>
 				</form>
@@ -86,7 +93,7 @@
 					<p>Are you sure you want to delete <span class="projectName"></span>?</p>
 					<div class="deleteButtons">
 						<input id="deleteInputId" type="hidden" value="">
-						<button id="deleteCancel">Cancel</button>
+						<button class="cancelBtn" id="deleteCancel">Cancel</button>
 						<button id="deleteDelete">Delete</button>
 					</div>
 				</div>
