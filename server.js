@@ -59,6 +59,21 @@ app.post('/users', function(req, res) {
     });
 });
 
+// READ: Login the user
+app.post('/login', (req, res)=> {
+    User.findOne({username: req.body.username}, (err, checkUser)=> {
+        if (checkUser) {
+            if (bcrypt.compareSync(req.body.password, checkUser.password)) {
+                res.send(checkUser);
+            } else {
+                res.send('invalid password');
+            }
+        } else {
+            res.send('invalid user');
+        }
+    });
+});
+
 // READ: Gets an array of all users
 app.get('/allUsers', function(req, res){
     User.find().then(result => {
@@ -67,7 +82,7 @@ app.get('/allUsers', function(req, res){
 });
 
 // CREATE: Add new item
-app.post('/item', function(req, res){
+app.post('/addItem', function(req, res){
     const item = new Item({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
@@ -78,7 +93,7 @@ app.post('/item', function(req, res){
         user_id: req.body.userId
     });
 
-    product.save().then(result => {
+    item.save().then(result => {
         res.send(result);
     }).catch(err => res.send(err));
 });
@@ -90,8 +105,33 @@ app.get('/allItems', function(req, res){
     });
 });
 
+// EDIT: Edit an item
+app.patch('/editItem', (req, res)=> {
+    Item.updateOne({
+        _id: req.body.id
+    }, {
+        name: req.body.name,
+        description: req.body.description,
+        imageUrl: req.body.imageUrl,
+        author: req.body.author,
+        url: req.body.url
+    }).then((result)=> {
+        res.send(result);
+    }).catch((err)=> {
+        res.send(err);
+    });
+});
+
+// DELETE: Delete an item
+app.delete('/delete', (req, res)=> {
+    Item.deleteOne({
+        _id: req.body.id
+    }).catch((err)=> {
+        res.send(err);
+    });
+});
+
 // Listen to port 3000
 app.listen(port, () => {
-    console.clear();
     console.log(`application is running on port ${port}`);
 });

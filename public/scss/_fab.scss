@@ -1,0 +1,23 @@
+.fab {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $secondaryColor;
+	color: $secondaryColorText;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+	transition: 0.3s;
+	cursor: pointer;
+	&:hover {
+		background-color: lighten($secondaryColor, 10%);
+	}
+	&:active {
+		background-color: lighten($secondaryColor, 20%);
+		box-shadow: 0 8px 20px rgba(0,0,0,0.20);
+	}
+}
