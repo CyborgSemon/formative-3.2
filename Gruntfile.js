@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint: {
-			files: ['*.js', '!Gruntfile.js', 'public/js/*.js'],
+			files: ['server.js'],
 			options: {
 				'esversion': 6
 			}
@@ -53,5 +53,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['watch'])
+	grunt.registerTask('default', ['watch']);
 };

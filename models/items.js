@@ -9,7 +9,7 @@ const itemsSchema = new mongoose.Schema({
     url: String,
     user_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'users'
     }
 });
 

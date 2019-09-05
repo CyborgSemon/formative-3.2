@@ -3,38 +3,75 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link href="css/main.min.css" rel="stylesheet">
 	</head>
 	<body>
-		<!-- <form id="register" autocomplete="false">
-			<p>username</p>
-			<input type="text" name="username" id="username">
-			<p>password</p>
-			<input type="password" name="password" id="password" autocomplete="new-password">
-			<p>fullName</p>
-			<input type="text" name="fullName" id="fullName">
-			<p>email</p>
-			<input type="text" name="email" id="email">
+		<div class="dialog" id="dialog1">
+			<div class="dialogBox">
+				<form id="login">
+					<p>username</p>
+					<input type="text" name="lUsername" id="lUsername">
+					<p>password</p>
+					<input type="password" name="lPassword" id="lPassword">
+					<button type="submit" name="button">Login</button>
+				</form>
+			</div>
+			<div class="dialogBackground" id="dialogBackground1"></div>
+		</div>
+		<div class="dialog" id="dialog2">
+			<div class="dialogBox">
+				<form id="register" autocomplete="false">
+					<p>Username</p>
+					<input type="text" name="username" id="username">
+					<p>Password</p>
+					<input type="password" name="password" id="password">
+					<p>Confirm Password</p>
+					<input type="password" name="passwordCheck" id="passwordCheck">
+					<p>Full Name</p>
+					<input type="text" name="fullName" id="fullName">
+					<p>Email</p>
+					<input type="email" name="email" id="email">
 
-			<button type="submit" name="button">Send Username</button>
-		</form>
+					<button type="submit" name="button">Create Account</button>
+				</form>
+			</div>
+			<div class="dialogBackground" id="dialogBackground2"></div>
+		</div>
+		<div class="dialog" id="dialog3">
+			<div class="dialogBox">
+				<form id="addItem">
+					<p>Title</p>
+					<input type="text" name="name" id="itemName">
+					<p>Description</p>
+					<input type="text" name="description" id="itemDescription">
+					<p>Image URL</p>
+					<input type="text" name="imageUrl" id="itemImageUrl">
+					<p>Project URL</p>
+					<input type="text" name="url" id="itemUrl">
+					<button type="submit" name="button">AddItem</button>
+				</form>
+			</div>
+			<div class="dialogBackground" id="dialogBackground3"></div>
+		</div>
 
-		<form id="login">
-			<p>username</p>
-			<input type="text" name="lUsername" id="lUsername">
-			<p>password</p>
-			<input type="text" name="lUsername" id="lpassword">
-		</form> -->
 		<div class="container">
 			<div class="infoBar">
-				<h3>19WDWU02</h3>
-				<button>Login</button>
+				<h3>19WDWU02 Class Projects</h3>
+				<div id="noUserBtns">
+					<button id="loginBtn">Login</button>
+					<button id="registerBtn">Register</button>
+				</div>
+				<button id="logoutBtn">Logout</button>
 			</div>
 			<div id="projects">
 
 			</div>
 		</div>
+		<div class="fab" id="fab">
+			<i class="material-icons">add</i>
+		</div>
 		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="js/main.min.js"></script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
