@@ -10,11 +10,13 @@
 		<div class="dialog" id="dialog1">
 			<div class="dialogBox">
 				<form id="login">
-					<p>username</p>
-					<input type="text" name="lUsername" id="lUsername">
-					<p>password</p>
-					<input type="password" name="lPassword" id="lPassword">
-					<button type="submit" name="button">Login</button>
+					<p class="spacing">Username</p>
+					<input class="spacing inputStyle" type="text" name="lUsername" id="lUsername">
+					<p class="spacing">Password</p>
+					<input class="spacing inputStyle" type="password" name="lPassword" id="lPassword">
+					<div class="deleteButtons">
+						<button class="formBtn" type="submit" name="button">Login</button>
+					</div>
 				</form>
 			</div>
 			<div class="dialogBackground" id="dialogBackground1"></div>
@@ -22,18 +24,19 @@
 		<div class="dialog" id="dialog2">
 			<div class="dialogBox">
 				<form id="register" autocomplete="false">
-					<p>Username</p>
-					<input type="text" name="username" id="username">
-					<p>Password</p>
-					<input type="password" name="password" id="password">
-					<p>Confirm Password</p>
-					<input type="password" name="passwordCheck" id="passwordCheck">
-					<p>Full Name</p>
-					<input type="text" name="fullName" id="fullName">
-					<p>Email</p>
-					<input type="email" name="email" id="email">
-
-					<button type="submit" name="button">Create Account</button>
+					<p class="spacing">Username</p>
+					<input class="spacing inputStyle" type="text" name="username" id="username">
+					<p class="spacing">Password</p>
+					<input class="spacing inputStyle" type="password" name="password" id="password">
+					<p class="spacing">Confirm Password</p>
+					<input class="spacing inputStyle" type="password" name="passwordCheck" id="passwordCheck">
+					<p class="spacing">Full Name</p>
+					<input class="spacing inputStyle" type="text" name="fullName" id="fullName">
+					<p class="spacing">Email</p>
+					<input class="spacing inputStyle" type="email" name="email" id="email">
+					<div class="deleteButtons">
+						<button class="formBtn" type="submit" name="button">Create Account</button>
+					</div>
 				</form>
 			</div>
 			<div class="dialogBackground" id="dialogBackground2"></div>
@@ -49,7 +52,7 @@
 					<input type="text" name="imageUrl" id="itemImageUrl">
 					<p>Project URL</p>
 					<input type="text" name="url" id="itemUrl">
-					<button type="submit" name="button">AddItem</button>
+					<button class="formBtn" type="submit" name="button">AddItem</button>
 				</form>
 			</div>
 			<div class="dialogBackground" id="dialogBackground3"></div>
@@ -57,12 +60,14 @@
 
 		<div class="container">
 			<div class="infoBar">
-				<h3>19WDWU02 Class Projects</h3>
-				<div id="noUserBtns">
-					<button id="loginBtn">Login</button>
-					<button id="registerBtn">Register</button>
+				<div class="navContent">
+					<h3>19WDWU02 Class Projects</h3>
+					<div id="noUserBtns">
+						<button id="loginBtn">Login</button>
+						<button id="registerBtn">Register</button>
+					</div>
+					<button id="logoutBtn">Logout</button>
 				</div>
-				<button id="logoutBtn">Logout</button>
 			</div>
 			<div id="projects">
 
