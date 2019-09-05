@@ -148,11 +148,81 @@ $('#addItem').submit(()=> {
                 console.log(err);
             },
             success: (result)=> {
-                console.log(result);
+                getAllItems();
+                $('#dialog3').hide();
+                $('#itemName').val(null);
+                $('#itemDescription').val(null);
+                $('#itemImageUrl').val(null);
+                $('#itemUrl').val(null);
             }
         });
     }
-})
+});
+
+$('#editItem').submit(()=> {
+    event.preventDefault();
+    let itemName = $('#editItemName').val();
+    let itemDescription = $('#editItemDescription').val();
+    let itemImageUrl = $('#editItemImageUrl').val();
+    let itemUrl = $('#editItemUrl').val();
+    let itemId = $('#editInputId').val();
+
+    if(itemName.length == 0){
+        console.log('please enter a username');
+    } else if (itemDescription.length == 0) {
+        console.log('please enter an email');
+    } else if (itemImageUrl.length == 0) {
+        console.log('Please enter a full name');
+    } else if (itemUrl.length == 0) {
+        console.log('Plese enter a password');
+    } else  {
+        $.ajax({
+            url: `${url}/editItem`,
+            type: 'PATCH',
+            data: {
+                itemId: itemId,
+                name: itemName,
+                url: itemUrl,
+                imageUrl: itemImageUrl,
+                description: itemDescription,
+                userId: sessionStorage.userId
+            },
+            error: (err)=> {
+                console.log('there was an error editiing the item');
+                console.log(err);
+            },
+            success: (result)=> {
+                getAllItems();
+                $('#dialog4').hide();
+                $('#editItemName').val(null);
+                $('#editItemDescription').val(null);
+                $('#editItemImageUrl').val(null);
+                $('#editItemUrl').val(null);
+            }
+        });
+    }
+});
+
+$('#deleteDelete').click(()=> {
+    let itemId = $('#deleteInputId').val();
+    $.ajax({
+        url: `${url}/deleteItem`,
+        type: 'DELETE',
+        data: {
+            id: itemId,
+            userId: sessionStorage.userId
+        },
+        error: (err)=> {
+            console.log('Error deleteing item');
+            console.log(err);
+        },
+        success: (result)=> {
+            $(`[data-itemid="${itemId}"]`).parent().parent().parent().remove();
+            $('#deleteInputId').val(null);
+            $('#dialog5').hide();
+        }
+    });
+});
 
 $('#logoutBtn').click(()=> {
     sessionStorage.clear();
@@ -183,6 +253,21 @@ $('#dialogBackground3').click(()=> {
     $('#dialog3').hide();
 });
 
+$('#dialogBackground4').click(()=> {
+    $('#dialog4').hide();
+    $('#editInputId').val(null);
+});
+
+$('#deleteCancel').click(()=> {
+    $('#dialog5').hide();
+    $('#deleteInputId').val(null);
+})
+
+$('#dialogBackground5').click(()=> {
+    $('#dialog5').hide();
+    $('#deleteInputId').val(null);
+});
+
 
 let grid = document.getElementById('projects');
 let cards = [];
@@ -208,7 +293,7 @@ function prepCards(cardsArray) {
         let bottomButtons;
         console.log();
         if (sessionStorage.userId && sessionStorage.userId == cardsArray[i].user_id) {
-            bottomButtons = `<div class="cardButtons"><a onclick="event.stopPropagation()" href="${cardsArray[i].url}" target="_blank" class="cardLink">Take a look!</a><div class="devButtons"><div class="iconButton" onclick="event.stopPropagation()"><i class="material-icons">edit</i></div><div class="iconButton" onclick="event.stopPropagation()"><i class="material-icons">delete</i></div></div></div>`;
+            bottomButtons = `<div class="cardButtons"><a onclick="event.stopPropagation()" href="${cardsArray[i].url}" target="_blank" class="cardLink">Take a look!</a><div class="devButtons" data-itemid="${cardsArray[i]._id}"><div class="iconButton editItemBtn" onclick="event.stopPropagation()"><i class="material-icons">edit</i></div><div class="iconButton deleteItemBtn" onclick="event.stopPropagation()"><i class="material-icons">delete</i></div></div></div>`;
         } else {
             bottomButtons = `<div class="cardButtons"><a onclick="event.stopPropagation()" href="${cardsArray[i].url}" target="_blank" class="cardLink">Take a look!</a></div>`;
         }
@@ -268,6 +353,37 @@ function loadCards(newWidth, eventCheck = false) {
                 e.classList.add('active');
             }
 
+        });
+    });
+    [].forEach.call(document.querySelectorAll('.editItemBtn'), (e)=> {
+        e.addEventListener('click', ()=> {
+            $('#editInputId').val(e.parentNode.dataset.itemid);
+            $('.projectName').text(e.parentNode.parentNode.parentNode.children[0].innerText);
+            $('#dialog4').show();
+            $.ajax({
+                url: `${url}/oneItem`,
+                type: 'POST',
+                data: {
+                    itemId: e.parentNode.dataset.itemid
+                },
+                error: (err)=> {
+                    console.log('Error finding item');
+                    console.log(err);
+                },
+                success: (result)=> {
+                    $('#editItemName').val(result.name);
+                    $('#editItemDescription').val(result.description);
+                    $('#editItemImageUrl').val(result.imageUrl);
+                    $('#editItemUrl').val(result.url);
+                }
+            });
+        });
+    });
+    [].forEach.call(document.querySelectorAll('.deleteItemBtn'), (e)=> {
+        e.addEventListener('click', ()=> {
+            $('#deleteInputId').val(e.parentNode.dataset.itemid);
+            $('.projectName').text(e.parentNode.parentNode.parentNode.children[0].innerText);
+            $('#dialog5').show();
         });
     });
     checkUser();

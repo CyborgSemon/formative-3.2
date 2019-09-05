@@ -105,30 +105,67 @@ app.get('/allItems', function(req, res){
     });
 });
 
+// READ: One item
+app.post('/oneItem', (req, res)=>{
+    Item.findById(req.body.itemId, (err, item)=> {
+        res.send(item);
+    }).catch(err => res.send('cannot find product with that id'));
+});
+
 // EDIT: Edit an item
 app.patch('/editItem', (req, res)=> {
-    Item.updateOne({
-        _id: req.body.id
-    }, {
-        name: req.body.name,
-        description: req.body.description,
-        imageUrl: req.body.imageUrl,
-        author: req.body.author,
-        url: req.body.url
-    }).then((result)=> {
-        res.send(result);
-    }).catch((err)=> {
-        res.send(err);
-    });
+    let itemId = req.body.itemId;
+    Item.findById(itemId, (err, item)=> {
+        if (item.user_id == req.body.userId) {
+            const newItem = {
+                name: req.body.name,
+                url: req.body.url,
+                imageUrl: req.body.imageUrl,
+                description: req.body.description
+            };
+            Item.updateOne({
+                _id: itemId
+            }, newItem).then((result)=> {
+                res.send(result);
+            }).catch((err)=> {
+                res.send(err);
+            });
+        } else {
+            res.send('401');
+        }
+    }).catch(err => res.send('cannot find product with that id'));
+    // Item.updateOne({
+    //     _id: itemId
+    // }, {
+    //     name: req.body.name,
+    //     description: req.body.description,
+    //     imageUrl: req.body.imageUrl,
+    //     author: req.body.author,
+    //     url: req.body.url
+    // }).then((result)=> {
+    //     res.send(result);
+    // }).catch((err)=> {
+    //     res.send(err);
+    // });
 });
 
 // DELETE: Delete an item
-app.delete('/delete', (req, res)=> {
-    Item.deleteOne({
-        _id: req.body.id
-    }).catch((err)=> {
-        res.send(err);
-    });
+app.delete('/deleteItem', (req, res)=> {
+    let id = req.body.id;
+    Item.findById(id, (err, item)=>{
+        console.log(item);
+        if (item.user_id == req.body.userId) {
+            Item.deleteOne({
+                _id: id
+            }, (err2)=> {
+                if (!err2) {
+                    res.send('deleted');
+                }
+            });
+        } else {
+            res.send('401');
+        }
+    }).catch(err => res.send('cannot find product with that id'));
 });
 
 // Listen to port 3000

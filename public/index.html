@@ -49,12 +49,43 @@
 					<input type="text" name="imageUrl" id="itemImageUrl">
 					<p>Project URL</p>
 					<input type="text" name="url" id="itemUrl">
-					<button type="submit" name="button">AddItem</button>
+					<button type="submit" name="button">Add Item</button>
 				</form>
 			</div>
 			<div class="dialogBackground" id="dialogBackground3"></div>
 		</div>
-
+		<div class="dialog" id="dialog4">
+			<div class="dialogBox">
+				<h3>Delete <span class="projectName"></span>?</h3>
+				<form id="editItem">
+					<p>Title</p>
+					<input type="text" name="name" id="editItemName">
+					<p>Description</p>
+					<input type="text" name="description" id="editItemDescription">
+					<p>Image URL</p>
+					<input type="text" name="imageUrl" id="editItemImageUrl">
+					<p>Project URL</p>
+					<input type="text" name="url" id="editItemUrl">
+					<input id="editInputId" type="hidden" value="">
+					<button type="submit" name="button">Edit Item</button>
+				</form>
+			</div>
+			<div class="dialogBackground" id="dialogBackground4"></div>
+		</div>
+		<div class="dialog" id="dialog5">
+			<div class="dialogBox">
+				<div class="deleteBox">
+					<h3>Delete <span class="projectName"></span>?</h3>
+					<p>Are you sure you want to delete <span class="projectName"></span>?</p>
+					<div class="deleteButtons">
+						<input id="deleteInputId" type="hidden" value="">
+						<button id="deleteCancel">Cancel</button>
+						<button id="deleteDelete">Delete</button>
+					</div>
+				</div>
+			</div>
+			<div class="dialogBackground" id="dialogBackground5"></div>
+		</div>
 		<div class="container">
 			<div class="infoBar">
 				<h3>19WDWU02 Class Projects</h3>
