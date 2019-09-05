@@ -144,6 +144,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 8px; }
+    .container .infoBar .fa-plus {
+      font-size: 16px; }
     .container .infoBar h3 {
       font-size: 1.4rem;
       color: #000000;
