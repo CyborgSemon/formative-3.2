@@ -6,7 +6,7 @@ First off, rename both `configExample.json` files to `config.json`.
 One is located in the root folder, the other is located in the public folder.
 
 For the root folder, you need to have an active cluster in MongoDB in order for this project to work. If you have not set up a cluster yet, you can set one up here [https://www.mongodb.com/](https://www.mongodb.com/).
-You should put your MongoDB database access user and password in their respective fields.
+You should put your MongoDB database access user, password and cluster name in their respective fields.
 
 The second thing you will need to set up is the config file in the public folder.
 If you are going to be running this site on your own computer, your `config.json` file should look something like this:
