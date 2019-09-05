@@ -176,8 +176,16 @@ body {
     align-items: center;
     flex-direction: row;
     padding: 8px; }
-    .container .infoBar .fa-plus {
-      font-size: 16px; }
+    .container .infoBar .navContent {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      @media screen and (min-width: 786px) {
+        .container .infoBar .navContent {
+          flex-direction: column; }
+          .container .infoBar .navContent #noUserBtns {
+            text-align: center; } }
     .container .infoBar h3 {
       font-size: 1.4rem;
       color: #000000;
